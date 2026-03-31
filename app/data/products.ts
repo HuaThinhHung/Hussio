@@ -71,7 +71,7 @@ export const products: Product[] = [
     colors: ["Xanh đậm", "Xanh nhạt", "Đen"],
     origin: "Việt Nam",
     sizes: ["28", "29", "30", "31", "32", "33", "34"],
-    slug: "Áo Sơ Mi",
+    slug: "ao-so-mi-slim-fit",
   },
   {
     id: 5,

@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { products, categories, formatPrice, Product } from "@/data/products";
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams?.get("category");
   const searchParam = searchParams?.get("search");
@@ -162,6 +162,14 @@ export default function ProductsPage() {
 
       </div>
     </main>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center">Đang tải sản phẩm...</div>}>
+      <ProductsContent />
+    </Suspense>
   );
 }
 
