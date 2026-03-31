@@ -6,6 +6,13 @@ export const metadata = {
   description: "Săn ngay các sản phẩm thời trang nam cao cấp với mức giá ưu đãi nhất. Số lượng có hạn!",
 };
 
-export default function SalePage() {
+export const dynamic = "force-dynamic";
+
+export default async function SalePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  await searchParams;
   return <SaleClient />;
 }

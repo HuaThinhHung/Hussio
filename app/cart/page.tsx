@@ -6,6 +6,13 @@ export const metadata = {
   description: "Kiểm tra lại giỏ hàng và tiến hành thanh toán các sản phẩm thời trang nam cao cấp từ HUSSIO.",
 };
 
-export default function CartPage() {
+export const dynamic = "force-dynamic";
+
+export default async function CartPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  await searchParams;
   return <CartClient />;
 }

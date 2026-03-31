@@ -1,12 +1,23 @@
 import React, { Suspense } from "react";
-import ProductsClient from "./ProductsClient";
+import nextDynamic from "next/dynamic";
+
+const ProductsClient = nextDynamic(() => import("./ProductsClient"), { ssr: false });
 
 export const metadata = {
   title: "Bộ Sưu Tập Sản Phẩm - HUSSIO",
   description: "Khám phá các mẫu áo thun, sơ mi, quần tây nam thiết kế tối giản, sang trọng tại HUSSIO.",
 };
 
-export default function ProductsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ProductsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  // Bắt buộc await searchParams trong Next.js 15+ để tránh lỗi Prerender
+  await searchParams;
+
   return (
     <Suspense 
       fallback={

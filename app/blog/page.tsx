@@ -8,7 +8,14 @@ export const metadata = {
   description: "Cập nhật những xu hướng thời trang nam mới nhất, bí quyết phối đồ và phong cách sống từ đội ngũ chuyên gia HUSSIO.",
 };
 
-export default function BlogListPage() {
+export const dynamic = "force-dynamic";
+
+export default async function BlogListPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  await searchParams;
   return (
     <main className="py-12 md:py-20 bg-slate-50 min-h-screen">
       <div className="container">

@@ -6,6 +6,13 @@ export const metadata = {
   description: "Hoàn tất đơn hàng của bạn tại HUSSIO. Hỗ trợ thanh toán COD, MoMo và Chuyển khoản ngân hàng nhanh chóng, an toàn.",
 };
 
-export default function CheckoutPage() {
+export const dynamic = "force-dynamic";
+
+export default async function CheckoutPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  await searchParams;
   return <CheckoutClient />;
 }
