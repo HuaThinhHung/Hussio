@@ -3,6 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { blogs } from "@/data/blogs";
 
+export const metadata = {
+  title: "Blog & Xu Hướng Thời Trang - HUSSIO",
+  description: "Cập nhật những xu hướng thời trang nam mới nhất, bí quyết phối đồ và phong cách sống từ đội ngũ chuyên gia HUSSIO.",
+};
+
 export default function BlogListPage() {
   return (
     <main className="py-12 md:py-20 bg-slate-50 min-h-screen">
